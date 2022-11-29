@@ -6,4 +6,15 @@ describe("Test suite", () => {
 
         expect(pageTitle).toEqual("Appointment Planner - Syncfusion Angular Components Showcase App")
     })
+
+    it("Second test", async() => {
+        await $("div.doctors").click();
+        await $("//button[text()='Add New Doctor']").click();
+        await $("input[name='Name']").setValue("John Doe");
+        await $("//button[text()='Save']").click();
+
+        const emailError = $("label#Email-info");
+        expect(await emailError.getText()).toEqual("Enter valid email");
+
+    })
 })
